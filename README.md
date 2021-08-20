@@ -1,6 +1,6 @@
 # blockproject
 
-A new Flutter project.
+A spike to practice flutter bloc state management
 
 ## Getting Started
 
