@@ -2,10 +2,28 @@ import 'package:blockproject/src/bloc/movies_bloc.dart';
 import 'package:blockproject/src/models/item_model.dart';
 import 'package:flutter/material.dart';
 
-class MovieList extends StatelessWidget {
+class MovieList extends StatefulWidget {
+  @override
+  _MovieListState createState() => _MovieListState();
+}
+
+class _MovieListState extends State<MovieList> {
+
+@override
+void initState() {
+    super.initState();
+    bloc.addMoviesToSink();
+}
+
+@override
+void dispose() {
+    super.dispose();
+bloc.dispose();
+}
+
   @override
   Widget build(BuildContext context) {
-    bloc.addMoviesToSink();
+
     return Scaffold(
       appBar: AppBar(title: Text("Popular Movies")),
       body: StreamBuilder<ItemModel>(
